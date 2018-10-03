@@ -7,124 +7,26 @@ from lxml import html
 global trm
 #end globals
 
+def Coin_Price(data):
+        full_coin_name = convert(data)
+        pageContent=requests.get("https://coinmarketcap.com/currencies/{0}/".format(full_coin_name))
+        tree = html.fromstring(pageContent.content)
+        final = tree.xpath('//*[@id="quote_price"]//text()')
+        finstr = ''.join(final)
+        return finstr
+def convert(data):
+        if data == "btc":return 'bitcoin'
+        elif data == "eth":return 'ethereum'
+        elif data == "ltc":return 'litecoin'
+        elif data == "bch":return 'bitcoin-cash'
+        elif data == "xmr":return 'monero'
+        elif data == "neo":return 'neo'
+        elif data == "sc":return 'siacoin'
+        elif data == "xrp":return 'ripple'
+        elif data == "dash":return 'dash'
+        elif data == "xem":return 'nem'
+        elif data == "bcc":return 'bitconnect'
+        elif data == "miota":return 'iota'
+        elif data == "doge":return 'dogecoin'
 def supported():
 	return ["btc", "eth", "ltc", "bch", "xmr","neo","sc","xrp","dash","xem","bcc","miota","doge"]
-def btcX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/bitcoin/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-
-def ethX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/ethereum/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-	
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-
-def ltcX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/litecoin/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-	
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-
-def bchX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/bitcoin-cash/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-	
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-
-def xmrX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/monero/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-	
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-def neoX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/neo/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-	
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-def scX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/siacoin/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-	
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-def xrpX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/ripple/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-	
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-def dashX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/dash/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-	
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-def xemX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/nem/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-	
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-def bccX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/bitconnect/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-	
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-def miotaX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/iota/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-	
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-def dogeX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/dogecoin/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-	
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-def cannX():
-	pageContent=requests.get("https://coinmarketcap.com/currencies/cannabiscoin/")
-	tree = html.fromstring(pageContent.content)
-	final = tree.xpath('//*[@id="quote_price"]//text()')
-	
-	finstr = ''.join(final)
-	#print (finstr)
-	return finstr
-#if __name__ == "__main__": #moreeee debug testing
-	#define("cow")
-	#example("anime")
